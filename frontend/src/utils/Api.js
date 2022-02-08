@@ -80,9 +80,8 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-29',
+  baseUrl: 'http://api.telcontar2012.nomoredomains.xyz',
   headers: {
-    authorization: 'a9ff0c53-5bfa-4560-ac1a-cab5954bddf5',
-    'Content-Type': 'application/json'
+    authorization: {'Content-Type': 'application/json'}
   }
 });
