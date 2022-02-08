@@ -1,0 +1,17 @@
+.sign__link {
+  margin-top: 15px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.sign__link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

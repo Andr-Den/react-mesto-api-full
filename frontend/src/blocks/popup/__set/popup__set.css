@@ -1,0 +1,9 @@
+.popup__set {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 430px;
+    border: none;
+}

@@ -1,0 +1,16 @@
+.profile__overlay {
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  height: 100%;
+  border: none;
+}
+
+.profile__overlay:hover {
+  background: rgba(0, 0, 0, 0.8);
+  background-image: url(../../../images/pensil.svg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-position: center;
+  background-size: 26px;
+  cursor: pointer;
+}

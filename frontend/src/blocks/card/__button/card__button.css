@@ -1,0 +1,14 @@
+.card__button {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card__button:hover {
+    opacity: .6;
+    cursor: pointer;
+  }
