@@ -5,6 +5,7 @@ const { celebrate, Joi, errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const {
   createUser, login,
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(requestLogger);
+
+app.use(cors);
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
