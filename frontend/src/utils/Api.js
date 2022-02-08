@@ -4,6 +4,14 @@ class Api {
     this._headers = headers;
   }
 
+  _headersWithToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this._headers.Authorization = `Bearer ${token}`
+    }
+    return this._headers
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -14,7 +22,7 @@ class Api {
 
   getInitialCards() {
     return fetch(this._baseUrl + '/cards', {
-      headers: this._headers
+      headers: this._headersWithToken()
     })
     .then(this._checkResponse);
   }
@@ -22,7 +30,7 @@ class Api {
   fetchUserInfo() {
     return fetch(this._baseUrl + '/users/me', {
       method: 'GET',
-      headers: this._headers
+      headers: this._headersWithToken()
     })
     .then(this._checkResponse);
   }
@@ -30,7 +38,7 @@ class Api {
   editUserInfo(name, about) {
     return fetch(this._baseUrl + '/users/me', {
       method: 'PATCH',
-      headers: this._headers,
+      headers: this._headersWithToken(),
       body: JSON.stringify({
         name,
         about
@@ -42,7 +50,7 @@ class Api {
   editAvatar(avatar) {
     return fetch(this._baseUrl + '/users/me/avatar', {
       method: 'PATCH',
-      headers: this._headers,
+      headers: this._headersWithToken(),
       body: JSON.stringify({
         avatar
       })
@@ -53,7 +61,7 @@ class Api {
   createCard(name, link) {
     return fetch(this._baseUrl + '/cards', {
       method: 'POST',
-      headers: this._headers,
+      headers: this._headersWithToken(),
       body: JSON.stringify({
         name,
         link
@@ -65,7 +73,7 @@ class Api {
   deleteCard(id) {
     return fetch(this._baseUrl + '/cards/' + id, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: this._headersWithToken(),
     })
     .then(this._checkResponse); 
   }
@@ -73,15 +81,13 @@ class Api {
   changeLikeCardStatus(id, liked) {
     return fetch(this._baseUrl + '/cards/likes/' + id, {
       method: !liked ? 'PUT' : 'DELETE',
-      headers: this._headers,
+      headers: this._headersWithToken(),
     })
     .then(this._checkResponse);
   }
 }
-// const token = () => localStorage.getItem('token');
-const token = localStorage.getItem('token');
 
 export const api = new Api({
   baseUrl: 'http://api.telcontar2012.nomoredomains.xyz',
-  headers: {"Authorization" : `Bearer ${token}`, 'Content-Type': 'application/json'}
+  headers: {'Content-Type': 'application/json'}
 });
