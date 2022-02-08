@@ -81,7 +81,5 @@ class Api {
 
 export const api = new Api({
   baseUrl: 'http://api.telcontar2012.nomoredomains.xyz',
-  headers: {
-    authorization: {'Content-Type': 'application/json'}
-  }
+  headers: {'Content-Type': 'application/json'}
 });
