@@ -78,9 +78,9 @@ class Api {
     .then(this._checkResponse);
   }
 }
-const token = localStorage.getItem('token');
+const token = () => localStorage.getItem('token');
 
 export const api = new Api({
   baseUrl: 'http://api.telcontar2012.nomoredomains.xyz',
-  headers: {"Authorization" : `Bearer ${token}`, 'Content-Type': 'application/json'}
+  headers: {"Authorization" : `Bearer ${token()}`, 'Content-Type': 'application/json'}
 });
