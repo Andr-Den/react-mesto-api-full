@@ -1,5 +1,6 @@
 const allowedCors = [
   'https://telcontar2012.nomoredomains.work',
+  'http://telcontar2012.nomoredomains.work',
   'localhost:3000',
 ];
 

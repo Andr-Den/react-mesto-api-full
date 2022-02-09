@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.telcontar2012.nomoredomains.xyz';
+export const BASE_URL = 'https://api.telcontar2012.nomoredomains.xyz' || 'http://api.telcontar2012.nomoredomains.xyz';
 
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
