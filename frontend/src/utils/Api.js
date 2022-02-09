@@ -88,6 +88,6 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://api.telcontar2012.nomoredomains.xyz',
+  baseUrl: 'http://api.telcontar2012.nomoredomains.xyz',
   headers: {'Content-Type': 'application/json'}
 });
