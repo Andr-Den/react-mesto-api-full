@@ -70,7 +70,7 @@ function App() {
   function handleUpdateUser(info) {
     api.editUserInfo(info.name, info.about)
     .then((result) => {
-      setCurrentUser(result)
+      setCurrentUser(result.data)
     }
     )
     .catch((err) => {
@@ -81,7 +81,7 @@ function App() {
   function handleUpdateAvatar(info) {
     api.editAvatar(info.avatar)
     .then((result) => {
-      setCurrentUser(result)
+      setCurrentUser(result.data)
     }
     )
     .catch((err) => {
@@ -103,8 +103,8 @@ function App() {
     }
     Promise.all([api.fetchUserInfo(), api.getInitialCards()])
     .then(([resultUserInfo, resultCardList]) => {
-      setCurrentUser(resultUserInfo);
-      setCards(resultCardList)
+      setCurrentUser(resultUserInfo.data);
+      setCards(resultCardList.data)
     })
     .catch((err) => {
       console.log(err);
